@@ -1,4 +1,4 @@
-//
+//  48. Convert constructor and overloading operators
 //  Integer.hpp
 //  
 //
@@ -11,9 +11,12 @@
 class Integer {
     int nr;
 public:
-    Integer();
-    Integer(int);
+    Integer() { };
+    Integer(int = 0); //convert constructor
     int getNr();
+    operator int();
+//    int operator += (int);
+    int operator += (Integer& );
 };
 
 #endif /* Integer_hpp */
