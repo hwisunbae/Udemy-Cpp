@@ -1,6 +1,4 @@
-//
-//  test.cpp
-//  friendship
+//  47. Copy constructor
 //
 //  Created by Hwisun Bae on 2018-06-07.
 //  Copyright © 2018 Hwisun Bae. All rights reserved.
@@ -11,19 +9,19 @@
 
 using namespace std;
 
-Integer::Integer(int nr){
-    this->nr = nr;
+Test::Test(int x , int y, int value){
+    this->x = x;
+    this->y = y;
+    this->p = new int (value);
+}
+Test::~Test(){
+    delete p;
 }
 
-int Integer::getNumber(){
-    return nr;
+//  explicit way to copy constructor
+Test::Test(const Test & obj){
+    this->x = obj.x;
+    this->y = obj.y;
+    this->p = new int (*(obj.p));
 }
 
-Integer::operator int (){
-    return this->nr;
-}
-
-int Integer::operator+= (Integer o){
-    this->nr = o.getNumber() + this->nr;
-    return this->nr;
-}
